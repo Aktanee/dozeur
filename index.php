@@ -15,6 +15,7 @@ body {
 	margin: 0; 
 	padding: 0; 
 	font-family: 'Lato', sans-serif;
+  font-size: 16px;
 }
 .wrapper { 
 	width: 1100px;	
@@ -88,8 +89,20 @@ select {
   height: 40px;
   margin-left: 32px;
   margin-top: 10px;
+  cursor: pointer;
 }
 .plus img {
+  height: 100%;
+  margin-top: -10px;
+}
+.plus2 {
+  width: 40px;
+  height: 40px;
+  margin-left: 32px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.plus2 img {
   height: 100%;
   margin-top: -10px;
 }
@@ -98,6 +111,7 @@ select {
   width: 30px;
   position: absolute;
   left: 93%;
+  cursor: pointer;
   margin-top: -50px;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -120,6 +134,7 @@ select {
        <p class="sub">Avantages</p> 
        <div id="avantage">
          <select name="" placeholder="Capacités bonus" id="">
+          <option name="default" id="default" value="default">Default</option>
          	<option name="celer" id="celer" value="">Célérité</option>
          	<option name="vol" value="">Vol</option>
          	<option name="init" value="">Initiative</option>
@@ -128,23 +143,24 @@ select {
          </select>
       </div>
        <div class="plus"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAALlAAAC5QEb/l57AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAeZQTFRF////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/UjJnQAAAKF0Uk5TAAECAwQFBggLDA0ODxATFBUWGBkaGxweHyAiJygpKi0uMDEyMzQ2Nzg7PD0+P0JDREdJSkxNUFZYWVpbXF1eX2FiZGVnbnFzd3h6e3yCg4SGiImSk5WWl5iam52eoKGkpaanqaqrra6vsbKztba4uru9vr/AwsPExcbHycvM0NLT1NjZ2tvc3uDh4+Tl5ufo6evs7fDy8/X29/j5+vv8/f6m1Hd3AAAGWElEQVR42sVb6UMbRRR/IZxBShFLI9YrJYoQjpAiKsWCQFEBOSxEKhqsVKpQyi3SFrGRopYWAgW11Cb5TyU7M3sky2Zn5+B92WXZN++3mZk37wRwQsX+1v6JmZX1rdjRUWxrfWVmor/VXwxSqDA4vPg4aUqPF4eDhUKF59cPrD5PWtLz1S/q8wWJrx7ZT9qi/ZFq/tK9fdEkBUX7vFzF+6cSSUpKTPm5ia+dzRx/eyHc293REgoEQi0d3b3hhe3Md2ZruYhvWE4b9+FYW5Un8z1PVdvYw7RXlxuYxVfcNIwYi7RbTq63PRIzMNysYBKf23OoG+zZZHNedp685slnOqbDnlzn8ms2dCOtdZbY5SvpXNMxbtQ4FO8e1C39uTo65ro53YYYdDua/RVtiGkHmqV6WuNfcbASQnsq+12HO9p/Vx1iL0TJ6xpSf/79rhynayinS1XeiSEXDWf+DZVxvJRlG5WOqx9yg+KMKrpDuHYbWRVJ4y4Z606RXZ6z9wjPUjm7Ji1fIqPdO2uP4zw59xIDbuBA7gEyDdHztr6fyD9oAk7UdEAQ2PgNisjvv+MDbuTbIbOQdR3kk/W3WQkcqXKTrMQse8FF9t/9MuBKZffJbrTWB0NEvgc4k4cgGLJ6K4TX62YZcKcyPAsJC61cgfX/TiUIoEq8EvdOPJnc+Pw78IEQ8uHduHKSehnEv1ETCKImPMOD5v+uwf8eAGE0gD/R1EbKxfbXklscADc+FzbM7MQefP6Vg0Aqx2djj8kOQPZvohGEUiOa58PMnYDt/3EQTOPYX0h/3oDtr1LRAEqxlZbuM2H/qwuEUxf22oxPa7H9myMeQA62lY2eK/Z/6e3vN85Qs/ix72zybJp2rIs/J//9ljoiM535tVPoEbX/82OK60NarmokbUp74kWbc452pJdfpNjmqScB+Y0JzdHvQ5DqaAd6W2F7QA2gDsnrUx8gO3gNZAEA5L1H0+akUx6ATuOaG0HxjxJ5AEpQDGUU/ZWPlOMkyAMAk0jxox1cj36PZpkAmpHMeuUPZKbE8mQCyIvpjK9V5T4CMgFARGFdTd0Wovh3u1wA7Si2noruB9F0eOUC8CKpwePbYRR/BbkAAEV1h4/vFpW7MdkAxhTexeM7lH9pkw2gDWV5AIrRZFTJBlCF5BYTW8QjG4CHWCWtKP8AsgEAynC0Qr9yXZAPYEFh7ocJ5RqWDyCsME/AjHLtlQ+gV2GeARSU6JYPoBsFK2BduXbIB9ChMK/DlnJtyfJ20QUzeh/toA/MqOWdLOd7i8K8Behgts4nlIcPk/T026uWg4aQGQJHyjVg+e6XSUd0zXLQgPLOkR0ABU+dAXhaYAeAjSlwRZ0BiLrsTIGdRXjVGYCrthahnW3oCt56YEpIkPn/bgVdtrYhiyICBIBNEbGoYiYARBWzHEZMAMhhxHIcMwEgxzGLQcIEgBgkLCYZCwDVJGMxSlkAqEYpNssvywagmuXYMflKNgDNMUGu2e+yAWiuGXZOz8kFoHNOsXt+WS4AnXuOAxRfywWgC1DgEM22WyYAQ4imXpsOaQAMQSocpvtOJgBDmA4HKv8plgfAGKgkodpP5AFIC9XiYPUv8gCkBatJuD4gC0BGuB4nLGZlAchIWJCUDfWZHE9xxWm5MlM2xCr5gXaoGWRXUpJJ0gqn7RJvUg51KcV1iZLJLG1HEpfLtB/ju36dttzCPHFJUrdXQDiZp25J8nq3RLT8k5LXJH0/KhrASel7UsAQrxUr/+QCBlLC8UhoBYFFCYdaxHLbJU6+ZRGLWsbzqTgAlmU8aiHTfzWi5GcpZFJLufZeEyM/aymXWsz2xysi5GcvZtPK+X59ib98O+V8WkHjUgFv+fYKGrWSzmXOOtluSadW1Lpxjqd820WturLePy9wXP/2y3p1hc37AV7yqQqbdaXdLz7jopVpS7v1xe23z7DLpy9u15f3//Ueq3wn5f36Bof4NSad5LDBwdDi8eQjx+Kdt3iAocll/nVn8lmaXMDQ5hP//i16ftY2H2OjU+Knd+mYOTQ6QVqr19IV26uYU6sXpDe7/R0J2vgUns1ukNHu9+Sbjy2nk3e7X4oyGh6j4daLJrMhqOExRWYtn4/mRz+X1PKp7OjTbXpVJvd0236RZjnVxmeFTrn1G9GpNr+rxLH9/3/R8VgoxEpFcQAAAABJRU5ErkJgggc20a6e3ffd3ef817b72cb8215b42501a"/></div>
+      <br>
+      <p class="sub">Désvantages</p> 
+ 		 <div id="desavantage">
+         <select name="" placeholder="Capacités bonus" id="">
+          <option name="default" id="default" value="default">Default</option>
+          <option name="def" id="celer" value="">Defensseur</option>
+          <option name="nobloc" value="">Ne pas pas bloquer<</option>
+          <option name="legend" value="">Légendaire</option>
+          <option name="arrivtap" value="">Arrive engagé</option>
+          <option name="illu" value="">Sacrifie au ciblage</option>
+         </select>
+      </div>
+       <div class="plus2"><img src="data:image/png;base64,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"/></div>
 
- 		<p class="sub">Malus</p>
-        Capacité : <br>
-        Defensseur<input type="checkbox" name="def"/><br><br>
-
-        Ne pas pas bloquer<input type="checkbox" name="nobloc"/><br>
-     	
-     	Legendaire<input type="checkbox" name="legend"/><br>
-
-     	Arrive engage<input type="checkbox" name="arrivtap"/><br>
-
-     	Sacrifie au ciblage<input type="checkbox" name="illu"/><br>
-
-     	Autre maul perso :<br>
+     	<p>Autre maul perso :<br>
      	(vous avez redige une capacite qui selon vous reduit la puissance de votre carte:
      	<br>.noter de 1 a 10: <input type="number" name="malusp" id="malusp"/>
-     	
+     	</p>
 
         <div id="button" bg-color="red"><b>Noter</b></div>
 <br>
@@ -162,16 +178,28 @@ select {
 $(document).ready(function(){
   /* ADD AND DELETE */
 	$(".plus").click(function() {
-    $("#avantage").append('<select name="" placeholder="Capacités bonus" id=""><option name="celer" id="celer" value="">Célérité</option><option name="vol" value="">Vol</option><option name="init" value="">Initiative</option><option name="contactm" value="">Contact Mortel</option><option name="piet" value="">Pietinement</option></select><div class="remove"></div>');
+    $("#avantage").append('<select name="" placeholder="Capacités bonus" id=""><option name="celer" id="celer" value="">Célérité</option><option name="vol" value="">Vol</option><option name="init" value="">Initiative</option><option name="contactm" value="">Contact Mortel</option><option name="piet" value="">Pietinement</option></select><div class="remove"></div>').fadeIn();
 	});
   $("#avantage").on( "click", "div", function(){
-    $(this).closest("div").remove();
-    $(this).find("select").css("display", "none");
+    $(this).closest("div").fadeOut("normal", function() {
+        $(this).remove();
+      });
+    $(this).prev().fadeOut("normal", function() {
+        $(this).remove();
+      });
   });
-  // $("#avantage").on( "click", "select", function(){
-  //   $(this).closest("select").css("display", "none");
-  //   console.log("fire");
-  // });
+  /* VERSION 2 */
+  $(".plus2").click(function() {
+    $("#desavantage").append('<select name="" placeholder="Capacités bonus" id=""><option name="celer" id="celer" value="">Célérité</option><option name="vol" value="">Vol</option><option name="init" value="">Initiative</option><option name="contactm" value="">Contact Mortel</option><option name="piet" value="">Pietinement</option></select><div class="remove"></div>').fadeIn();
+  });
+  $("#desavantage").on( "click", "div", function(){
+    $(this).closest("div").fadeOut("normal", function() {
+        $(this).remove();
+      });
+    $(this).prev().fadeOut("normal", function() {
+        $(this).remove();
+      });
+  });
 
 
   $("#button").click(function(){
